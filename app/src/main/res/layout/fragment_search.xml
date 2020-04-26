@@ -32,7 +32,9 @@
                 android:layout_marginRight="15sp"
                 android:orientation="vertical">
 
-                <TextView
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_search_name"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="50sp"
                     android:gravity="center"
@@ -40,7 +42,9 @@
                     android:textAlignment="center"
                     android:textSize="26sp" />
 
-                <TextView
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_search_date"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="50sp"
                     android:gravity="center"
@@ -48,7 +52,9 @@
                     android:textAlignment="center"
                     android:textSize="26sp" />
 
-                <TextView
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_search_location"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="50sp"
                     android:gravity="center"

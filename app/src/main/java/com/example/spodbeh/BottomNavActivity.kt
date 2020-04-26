@@ -11,13 +11,13 @@ class BottomNavActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_nav)
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SearchFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
 
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             var selected: Fragment? = null
 
             when (item.itemId) {
-//                R.id.nav_home -> selected = HomeFragment()
+                R.id.nav_home -> selected = HomeFragment()
                 R.id.nav_add -> selected = AddFragment()
                 R.id.nav_search -> selected = SearchFragment()
             }

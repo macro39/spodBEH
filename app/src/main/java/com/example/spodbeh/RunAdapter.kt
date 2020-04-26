@@ -10,8 +10,12 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.example.spodbeh.model.Run
+import com.example.spodbeh.net.callRest
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.lang.Exception
 import java.text.SimpleDateFormat
 
 
@@ -54,21 +58,33 @@ class RunAdapter(private var activity: Activity, private var items: ArrayList<Ru
         viewHolder.date?.text = date
         viewHolder.location?.text = run.location
 
+        val isAlreadyRegistered = DataHolder.loggedUser?.runs?.firstOrNull { s -> s.runId == run.runId } != null
+
+        var dialogString = "Naozaj si prajete prihlásiť sa?"
+
+        if (isAlreadyRegistered) {
+//            Toast.makeText(activity.applicationContext, "Už si prihlásený", Toast.LENGTH_SHORT).show()
+            viewHolder.button?.text = "Odhlásiť sa"
+            dialogString = "Naozaj si prajete odhlásiť sa?"
+        } else {
+            viewHolder.button?.text = "Prihlásiť sa"
+        }
+
         viewHolder.button?.setOnClickListener {
+
             AlertDialog.Builder(activity)
                     .setTitle("Upozornenie")
-                    .setMessage("Naozaj si prajete prihlásiť sa?")
+                    .setMessage(dialogString)
                     .setCancelable(false)
                     .setPositiveButton("Áno") { dialog: DialogInterface, _: Int ->
-                        val selected = getItem(position)
-                        Toast.makeText(activity, "REGISTERED " + selected.name, Toast.LENGTH_SHORT).show()
-
-                        items.remove(selected)
-                        activity.findViewById<TextView>(R.id.textView_search_results_count).text = Constants.RESULTS_TEXT + items.size
-
-                        if (items.size == 0) {
-                            activity.findViewById<TextView>(R.id.textView_search_no_data).visibility = View.VISIBLE
+                        if (isAlreadyRegistered) {
+                            val run = DataHolder.loggedUser?.runs?.first { s -> s.runId == run.runId }
+                            DataHolder.loggedUser?.runs?.remove(run)
+                        } else {
+                            DataHolder.loggedUser?.runs?.add(getItem(position))
                         }
+
+                        registerRun(isAlreadyRegistered, getItem(position).runId)
 
                         this.notifyDataSetChanged()
 
@@ -79,7 +95,6 @@ class RunAdapter(private var activity: Activity, private var items: ArrayList<Ru
                     }
                     .show()
         }
-
         return view
     }
 
@@ -95,11 +110,17 @@ class RunAdapter(private var activity: Activity, private var items: ArrayList<Ru
         return items.size
     }
 
-    fun changeData(list: ArrayList<Run>) {
-        for (item in items) {
-            items.remove(item)
+    private fun registerRun(isAlreadyRegistered: Boolean, runId: Long) {
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                if (isAlreadyRegistered) {
+                    callRest("/run/unregister/" + runId + "/" + DataHolder.loggedUser?.runnerId, "GET", null)
+                } else {
+                    callRest("/run/register/" + runId + "/" + DataHolder.loggedUser?.runnerId, "GET", null)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
-        items.addAll(list)
-        this.notifyDataSetChanged()
     }
 }

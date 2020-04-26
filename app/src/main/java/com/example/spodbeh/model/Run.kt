@@ -8,7 +8,7 @@ import kotlin.collections.ArrayList
  * Created by Kamil Macek on 21.4.2020.
  */
 data class Run(
-        val id: Int,
+        val runId: Long,
         val name: String,
         val date: Date,
         val location: String,

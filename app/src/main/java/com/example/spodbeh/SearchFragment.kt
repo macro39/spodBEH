@@ -61,14 +61,37 @@ class SearchFragment : Fragment() {
     private fun filterList() {
         filteredData.clear()
 
-        for (run in data) {
-            if (run.name.toLowerCase().contains(textInputEditText_filter_name.text?.trim().toString().toLowerCase())
-                    && run.location.toLowerCase().contains(textInputEditText_filter_location.text?.trim().toString().toLowerCase())
-                    && SimpleDateFormat("dd/MM/yyyy").format(run.date) == textView_filter_date.text) {
-                filteredData.add(run)
+        if (!chip_search_name.isChecked && !chip_search_date.isChecked && !chip_search_name.isChecked) {
+            filteredData.addAll(data)
+        } else {
+            for (run in data) {
+                var probablyToAdd: Run? = null
+
+                if (chip_search_name.isChecked && run.name.toLowerCase().contains(textInputEditText_filter_name.text?.trim().toString().toLowerCase())) {
+                    probablyToAdd = run
+                }
+
+                if (chip_search_date.isChecked) {
+                    probablyToAdd = if (SimpleDateFormat("dd/MM/yyyy").format(run.date) == textView_filter_date.text) {
+                        run
+                    } else {
+                        null
+                    }
+                }
+
+                if (chip_search_location.isChecked) {
+                    probablyToAdd = if (run.location.toLowerCase().contains(textInputEditText_filter_location.text?.trim().toString().toLowerCase())) {
+                        run
+                    } else {
+                        null
+                    }
+                }
+
+                if (probablyToAdd != null) {
+                    filteredData.add(run)
+                }
             }
         }
-        Log.d("HAHA", filteredData.size.toString())
 
         textView_search_results_count.text = Constants.RESULTS_TEXT + filteredData.size
 
@@ -107,6 +130,10 @@ class SearchFragment : Fragment() {
 
         textInputEditText_filter_name.text?.clear()
         textInputEditText_filter_location.text?.clear()
+
+        chip_search_name.isChecked = false
+        chip_search_date.isChecked = false
+        chip_search_location.isChecked = false
     }
 
     private fun updateData(updateListView: Boolean) {
@@ -119,10 +146,6 @@ class SearchFragment : Fragment() {
                 data = GsonBuilder()
                         .setDateFormat("yyyy-MM-dd'T'HH:mm:ssz")
                         .create().fromJson<ArrayList<Run>>(response)
-
-                for (run in data) {
-                    Log.d("HAHA", run.date.toString())
-                }
 
                 if (updateListView) {
                     GlobalScope.launch(Dispatchers.Main) {
