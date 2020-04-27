@@ -67,7 +67,7 @@ class SearchFragment : Fragment() {
             for (run in data) {
                 var probablyToAdd: Run? = null
 
-                if (chip_search_name.isChecked && run.name.toLowerCase().contains(textInputEditText_filter_name.text?.trim().toString().toLowerCase())) {
+                if (chip_search_name.isChecked && run.name.toLowerCase().contains(editText_filter_name.text?.trim().toString().toLowerCase())) {
                     probablyToAdd = run
                 }
 
@@ -80,7 +80,7 @@ class SearchFragment : Fragment() {
                 }
 
                 if (chip_search_location.isChecked) {
-                    probablyToAdd = if (run.location.toLowerCase().contains(textInputEditText_filter_location.text?.trim().toString().toLowerCase())) {
+                    probablyToAdd = if (run.location.toLowerCase().contains(ditText_filter_location.text?.trim().toString().toLowerCase())) {
                         run
                     } else {
                         null
@@ -128,8 +128,8 @@ class SearchFragment : Fragment() {
 
         textView_filter_date.text = "" + String.format("%02d", day) + "/" + String.format("%02d", (month + 1)) + "/$year"
 
-        textInputEditText_filter_name.text?.clear()
-        textInputEditText_filter_location.text?.clear()
+        editText_filter_name.text?.clear()
+        ditText_filter_location.text?.clear()
 
         chip_search_name.isChecked = false
         chip_search_date.isChecked = false

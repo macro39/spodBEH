@@ -68,8 +68,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditText_filter_name"
+                <EditText
+                    android:id="@+id/editText_filter_name"
                     android:layout_width="match_parent"
                     android:layout_height="50sp"
                     android:gravity="center" />
@@ -83,8 +83,8 @@
                     android:textAlignment="center"
                     android:textSize="26sp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditText_filter_location"
+                <EditText
+                    android:id="@+id/ditText_filter_location"
                     android:layout_width="match_parent"
                     android:layout_height="50sp"
                     android:gravity="center" />
