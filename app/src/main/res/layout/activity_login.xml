@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#00ffbb"
     android:stretchColumns="1">
 
     <TableRow android:padding="5dip">
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_marginLeft="10dp"
-            android:text="username"
+            android:text="Meno"
             android:textSize="16sp" />
 
         <EditText
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_marginLeft="10dp"
-            android:hint="username"
+            android:hint="používateľské meno"
             android:padding="5dp" />
     </TableRow>
 
@@ -42,7 +43,7 @@
             android:layout_column="0"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:text="heslo"
+            android:text="Heslo"
             android:textSize="16sp" />
 
         <EditText
@@ -52,7 +53,7 @@
             android:inputType="textPassword"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:hint="heslo"
+            android:hint="*****"
             android:padding="5dp" />
     </TableRow>
 
@@ -64,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_span="2"
-            android:text="Log in" />
+            android:text="Prihlásiť" />
     </TableRow>
 
     <TableRow android:layout_marginTop="20dp">
