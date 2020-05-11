@@ -61,7 +61,7 @@ class SearchFragment : Fragment() {
     private fun filterList() {
         filteredData.clear()
 
-        if (!chip_search_name.isChecked && !chip_search_date.isChecked && !chip_search_name.isChecked) {
+        if (!chip_search_name.isChecked && !chip_search_date.isChecked && !chip_search_location.isChecked) {
             filteredData.addAll(data)
         } else {
             for (run in data) {

@@ -14,7 +14,7 @@
             android:layout_span="2"
             android:gravity="center_horizontal"
             android:text="Vitajte v aplikácii spodBEH"
-            android:textSize="25sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
     </TableRow>
 
@@ -25,7 +25,7 @@
             android:layout_column="0"
             android:layout_marginLeft="10dp"
             android:text="Meno"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editText_login_username"
@@ -44,7 +44,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:text="Heslo"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editText_login_password"
