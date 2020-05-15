@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00ffbb"
-    android:orientation="vertical">
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,16 +13,18 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:gravity="center_horizontal"
-            android:text="Vyhľadanie behu"
+            android:text="Informácie o stanovišti"
             android:textAlignment="center"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -32,33 +34,35 @@
                 android:layout_marginRight="15sp"
                 android:orientation="vertical">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_search_name"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="50sp"
                     android:gravity="center"
-                    android:text="Názov"
+                    android:text="Meno"
                     android:textAlignment="center"
                     android:textSize="26sp" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_search_date"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="50sp"
                     android:gravity="center"
-                    android:text="Dátum"
+                    android:text="Typ"
                     android:textAlignment="center"
                     android:textSize="26sp" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_search_location"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="50sp"
                     android:gravity="center"
-                    android:text="Miesto"
+                    android:text="Časový limit"
+                    android:textAlignment="center"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50sp"
+                    android:gravity="center"
+                    android:text="Výber"
                     android:textAlignment="center"
                     android:textSize="26sp" />
             </LinearLayout>
@@ -69,67 +73,68 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/editText_filter_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="50sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:id="@+id/textView_filter_date"
+                    android:id="@+id/editText_add_stand_name"
                     android:layout_width="match_parent"
                     android:layout_height="50sp"
                     android:gravity="center"
-                    android:text="24/04/2020"
+                    android:textSize="26sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_add_stand_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:gravity="center"
                     android:textAlignment="center"
                     android:textSize="26sp" />
 
                 <EditText
-                    android:id="@+id/ditText_filter_location"
+                    android:id="@+id/editText_add_stand_time"
                     android:layout_width="match_parent"
                     android:layout_height="50sp"
-                    android:gravity="center" />
+                    android:inputType="numberDecimal"
+                    android:gravity="center"
+                    android:textSize="26sp" />
 
-                <Button
-                    android:id="@+id/button_search"
+                <Spinner
+                    android:id="@+id/spinner_add_stand_select"
                     android:layout_width="match_parent"
                     android:layout_height="50sp"
                     android:gravity="center"
-                    android:text="Vyhľadaj" />
+                    android:textAlignment="center"
+                    android:textSize="26sp" />
             </LinearLayout>
         </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/refreshment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="občerstvenie"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lekárska pomoc" />
+
+            <RadioButton
+                android:id="@+id/team_consultations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="konzultácia tímu" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_add_stand_final"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pridať" />
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView_search_results_count"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10sp"
-        android:text="Pocet vysledkov: " />
-
-    <TextView
-        android:id="@+id/textView_search_no_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15sp"
-        android:gravity="center"
-        android:text="Źiadne výsledky"
-        android:visibility="gone" />
-
-    <ProgressBar
-        android:id="@+id/progressBar_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
-    <!--    <de.codecrafters.tableview.TableView-->
-    <!--        android:id="@+id/tableView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content" />-->
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10sp" />
-
-</LinearLayout>
+</ScrollView>

@@ -1,5 +1,7 @@
 package com.example.spodbeh
 
+import com.example.spodbeh.model.City
+import com.example.spodbeh.model.Run
 import com.example.spodbeh.model.Runner
 
 
@@ -8,4 +10,7 @@ import com.example.spodbeh.model.Runner
  */
 object DataHolder {
     var loggedUser: Runner? = null
+    var cities: ArrayList<City>? = null
+    var citiesNames: ArrayList<String>? = null
+    var newRun: Run? = null
 }
