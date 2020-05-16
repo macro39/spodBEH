@@ -14,7 +14,7 @@ import kotlin.coroutines.resumeWithException
  * Created by Kamil Macek on 25.4.2020.
  */
 
-const val baseURL = "http://192.168.0.108:8080/spodbeh"
+const val baseURL = "http://192.168.100.21:8080/spodbeh"
 
 inline fun <reified T> Gson.fromJson(json: String) = fromJson<T>(json, object : TypeToken<T>() {}.type)
 

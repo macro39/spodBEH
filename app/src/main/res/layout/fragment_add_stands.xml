@@ -37,17 +37,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="50sp"
                     android:gravity="center"
-                    android:text="Vzdialenosť"
+                    android:text="Vzdialenosť (m)"
                     android:textAlignment="viewStart"
                     android:textSize="20sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50sp"
-                    android:gravity="center"
-                    android:text="Prevýšenie"
-                    android:textAlignment="viewStart"
-                    android:textSize="20sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50sp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Prevýšenie(m)"-->
+<!--                    android:textAlignment="viewStart"-->
+<!--                    android:textSize="20sp" />-->
             </LinearLayout>
 
             <LinearLayout
@@ -63,13 +63,13 @@
                     android:text="0"
                     android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/textView_add_stands_elevation"
-                    android:layout_width="match_parent"
-                    android:layout_height="50sp"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textSize="20sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/textView_add_stands_elevation"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50sp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="0"-->
+<!--                    android:textSize="20sp" />-->
             </LinearLayout>
         </LinearLayout>
 
@@ -101,34 +101,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="10sp"
-                android:text="Úseky"
-                android:textAlignment="center"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:layout_marginTop="10sp"-->
+<!--                android:text="Úseky"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="26sp"-->
+<!--                android:textStyle="bold" />-->
 
-            <Button
-                android:id="@+id/button_add_section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
-                android:text="Pridaj" />
-        </LinearLayout>
+<!--            <Button-->
+<!--                android:id="@+id/button_add_section"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10sp"-->
+<!--                android:text="Pridaj" />-->
+<!--        </LinearLayout>-->
 
-        <ListView
-            android:id="@+id/listView_add_section"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp" />
+<!--        <ListView-->
+<!--            android:id="@+id/listView_add_section"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10sp" />-->
 
         <Button
             android:id="@+id/button_add_stand_next"

@@ -12,8 +12,8 @@ data class Run(
         val name: String = "",
         val date: Date = Date(),
         val location: String = "",
-        val distance: Double = 0.0,
-        val elevation: Double = 0.0,
+        var distance: Double = 0.0,
+        var elevation: Double = 0.0,
         val stands: ArrayList<Stand> = arrayListOf(),
         val runners: ArrayList<Runner> = arrayListOf()
 )
